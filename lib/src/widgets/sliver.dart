@@ -171,11 +171,6 @@ class SliverVariableSizeBoxAdaptorElement extends RenderObjectElement
     final SliverVariableSizeBoxAdaptorParentData newParentData =
         newChild?.renderObject?.parentData;
 
-    // set keepAlive to true in order to populate the cache
-    if (newParentData != null) {
-      newParentData.keepAlive = true;
-    }
-
     // Preserve the old layoutOffset if the renderObject was swapped out.
     if (oldParentData != newParentData &&
         oldParentData != null &&

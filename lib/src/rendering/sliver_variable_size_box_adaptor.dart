@@ -205,17 +205,6 @@ abstract class RenderSliverVariableSizeBoxAdaptor extends RenderSliver
   @override
   void remove(int index) {
     final RenderBox child = this[index];
-    
-    // if child is null, it means this element was cached - drop the cached element
-    if (child == null) {
-      RenderBox cachedChild = _keepAliveBucket[index];
-      if (cachedChild != null) {
-        dropChild(cachedChild);
-        _keepAliveBucket.remove(index);
-      }
-      return;
-    }
-
     final SliverVariableSizeBoxAdaptorParentData childParentData =
         child.parentData;
     if (!childParentData._keptAlive) {
