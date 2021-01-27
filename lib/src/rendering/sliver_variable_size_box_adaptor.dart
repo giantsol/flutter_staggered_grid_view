@@ -283,6 +283,12 @@ abstract class RenderSliverVariableSizeBoxAdaptor extends RenderSliver
     _keepAliveBucket.values.forEach(visitor);
   }
 
+  @override
+  void visitChildrenForSemantics(RenderObjectVisitor visitor) {
+    super.visitChildren(visitor);
+    // Do not visit children in [_keepAliveBucket].
+  }
+
   bool addChild(int index) {
     assert(_debugAssertChildListLocked());
     _createOrObtainChild(index);
